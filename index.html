@@ -75,3 +75,71 @@
     alert("A cotação da soja subiu 1.5% hoje!");
   }
 </script><button id="btn-contato">Falar com Consultor</button>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel de Produtos Agro</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f4f7f4; padding: 20px; }
+    .produto-card { background: white; padding: 20px; border-radius: 8px; max-width: 400px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .btn-agro { background-color: #2e7d32; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-top: 10px; }
+    .btn-agro:hover { background-color: #1b5e20; }
+    .detalhes-container { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd; }
+    .suporte-box { background-color: #e8f5e9; padding: 10px; border-radius: 5px; font-size: 13px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <div class="produto-card">
+    <h2>Semente de Milho Híbrido</h2>
+    <p>Alta produtividade e resistência a pragas.</p>
+    <p><strong>Preço:</strong> Sob consulta</p>
+    
+    <button class="btn-agro" id="btn-detalhes">Ver Detalhes e Suporte</button>
+
+    <div id="area-detalhes" class="detalhes-container">
+      <h3>Especificações Técnicas:</h3>
+      <p>Ideal para safrinha, excelente enraizamento e tolerância ao estresse hídrico.</p>
+      
+      <div class="suporte-box">
+        <strong>🛡️ Garantia de Reembolso:</strong><br>
+        Garantimos a taxa de germinação padrão. Devolução ou reembolso garantidos em até 7 dias após a entrega caso o lote apresente inconformidades.
+      </div>
+
+      <button class="btn-agro" style="background-color: #25d366;" id="btn-falar-vendedor">
+        💬 Falar com Atendente
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // 1. Mapeia os elementos do HTML
+    const botaoDetalhes = document.getElementById('btn-detalhes');
+    const areaDetalhes = document.getElementById('area-detalhes');
+    const botaoVendedor = document.getElementById('btn-falar-vendedor');
+
+    // 2. Função para mostrar/esconder a página detalhada do produto
+    botaoDetalhes.addEventListener('click', function() {
+      // Se estiver escondido, mostra. Se estiver visível, esconde.
+      if (areaDetalhes.style.display === 'none' || areaDetalhes.style.display === '') {
+        areaDetalhes.style.display = 'block';
+        botaoDetalhes.innerText = 'Fechar Detalhes';
+      } else {
+        areaDetalhes.style.display = 'none';
+        botaoDetalhes.innerText = 'Ver Detalhes e Suporte';
+      }
+    });
+
+    // 3. Função para falar com o consumidor (Redireciona para o WhatsApp)
+    botaoVendedor.addEventListener('click', function() {
+      const numeroTelefone = "5541999999999"; // Substitua pelo seu número com DDD
+      const mensagem = encodeURIComponent("Olá! Gostaria de suporte sobre a Semente de Milho Híbrido e entender mais sobre as políticas de reembolso.");
+      
+      // Abre o chat do WhatsApp em uma nova aba
+      window.open(`https://wa.me/${numeroTelefone}?text=${mensagem}`, '_blank');
+    });
+  </script>
+
+</body>
+</html>
