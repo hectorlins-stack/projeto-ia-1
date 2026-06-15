@@ -52,4 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.backgroundColor = '#fff';
         }
     });
-});
+});// 1. Encontra o botão na página através da ID
+const botao = document.getElementById('btn-contato');
+
+// 2. Cria a função que diz o que vai acontecer
+function abrirContato() {
+  console.log("O usuário clicou no botão de contato!");
+  // Aqui poderia ir o código para abrir um modal ou redirecionar para o WhatsApp
+  window.open("https://wa.me/seuNumeroAqui", "_blank");
+}
+
+// 3. Diz para o botão "escutar" o clique e rodar a função
+botao.addEventListener('click', abrirContato);
